@@ -229,8 +229,7 @@ def get_help(bot: Bot, update: Update):
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
 
-        update.effective_message.reply_text("ᴘᴄ ꜱᴀʏᴀ ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ꜱᴇᴍᴜᴀ ᴘᴇʀɪɴᴛᴀʜ.
-",
+        update.effective_message.reply_text("ᴘᴄ ꜱᴀʏᴀ ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ꜱᴇᴍᴜᴀ ᴘᴇʀɪɴᴛᴀʜ.",
                                             reply_markup=InlineKeyboardMarkup(
                                                 [[InlineKeyboardButton(text="KLIK",
                                                                        url="t.me/{}?start=help".format(
