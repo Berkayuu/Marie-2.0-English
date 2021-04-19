@@ -66,17 +66,17 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+            message.reply_text("saya tidak dapat menemukan pengguna ini")
             return ""
         else:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("I really wish I could ban admins...")
+        message.reply_text("Saya sangat berharap saya bisa banned admin")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna BAN myself, are you crazy?")
+        message.reply_text("Aku tidak akan membanned diriku sendiri?")
         return ""
 
     log = "<b>{}:</b>" \
@@ -128,8 +128,8 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+        if excp.message == "pengguna tidak ada":
+            message.reply_text("saya tidak dapat menemukan pengguna")
             return ""
         else:
             raise
@@ -440,7 +440,7 @@ def runban(bot: Bot, update: Update, args: List[str]):
 
 
 __help__ = """
- - /kickme: kicks the user who issued the command
+ - /kickme: coba aja keren loh
 
 *Admin only:*
  - /ban <userhandle>: bans a user. (via handle, or reply)
