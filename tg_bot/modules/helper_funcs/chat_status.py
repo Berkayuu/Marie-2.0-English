@@ -54,8 +54,8 @@ def bot_can_delete(func):
         if can_delete(update.effective_chat, bot.id):
             return func(bot, update, *args, **kwargs)
         else:
-            update.effective_message.reply_text("I can't delete messages here! "
-                                                "Make sure I'm admin and can delete other user's messages.")
+            update.effective_message.reply_text("Aing tidak bisa menghapus pesan "
+                                                "Jadikan saya admin akan ku hapus pesan dia dan kepala otaknya")
 
     return delete_rights
 
@@ -66,8 +66,8 @@ def can_pin(func):
         if update.effective_chat.get_member(bot.id).can_pin_messages:
             return func(bot, update, *args, **kwargs)
         else:
-            update.effective_message.reply_text("I can't pin messages here! "
-                                                "Make sure I'm admin and can pin messages.")
+            update.effective_message.reply_text("aing tidak bisa melakukan pin! "
+                                                "ketika title adminku terpasang disitulah pin mu melayang.")
 
     return pin_rights
 
@@ -78,8 +78,8 @@ def can_promote(func):
         if update.effective_chat.get_member(bot.id).can_promote_members:
             return func(bot, update, *args, **kwargs)
         else:
-            update.effective_message.reply_text("I can't promote/demote people here! "
-                                                "Make sure I'm admin and can appoint new admins.")
+            update.effective_message.reply_text("lebay amat pen di promot "
+                                                "maap bukan atmin.")
 
     return promote_rights
 
@@ -91,7 +91,7 @@ def can_restrict(func):
             return func(bot, update, *args, **kwargs)
         else:
             update.effective_message.reply_text("I can't restrict people here! "
-                                                "Make sure I'm admin and can appoint new admins.")
+                                                "bukan atmin.")
 
     return promote_rights
 
@@ -102,7 +102,7 @@ def bot_admin(func):
         if is_bot_admin(update.effective_chat, bot.id):
             return func(bot, update, *args, **kwargs)
         else:
-            update.effective_message.reply_text("I'm not admin!")
+            update.effective_message.reply_text("bukan atmin")
 
     return is_admin
 
