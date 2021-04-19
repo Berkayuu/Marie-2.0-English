@@ -18,18 +18,16 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-halo {}, nama aku {} klik /help unnntuk fitur
-
-bot di buat oleh [kayu](tg://user?id={}).
-
-bot untuk digunakan di group
-
-RUMAH KOK KAYU SIH
-rumah aku emang kayu kontol
+ʜᴀʟʟᴏ {}
+ɴᴀᴍᴀ ꜱᴀʏᴀ {} 
+ᴋʟɪᴋ /help ᴜᴛᴜᴋ ꜰɪᴛᴜʀ
+ʙᴏᴛ ᴅɪ ʙᴜᴀᴛ ᴏʟᴇʜ [@](tg://user?id={}).
+ʙᴏᴛ ᴜɴᴛᴜᴋ ᴅɪɢᴜɴᴀᴋᴀɴ ᴅɪ ɢʀᴏᴜᴘ
 
 
-
-**JANGAN LUPA BERKAYU.**
+ʀᴜᴍᴀʜ ᴋᴏᴋ ᴋᴀʏᴜ ꜱɪʜ
+ʀᴜᴍᴀʜ ᴀᴋᴜ ᴇᴍᴀɴɢ ᴋᴀʏᴜ ᴋᴏɴᴛᴏʟ
+**ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ʙᴇʀᴋᴀʏᴜ.**
 
 """
 
