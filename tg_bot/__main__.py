@@ -33,25 +33,21 @@ PM_START_TEXT = """
 
 HELP_STRINGS = """
 
-Hello! my name *{}*.
+ɴᴀᴍᴀ ꜱᴀʏᴀ *{}*.
 
-*Main* available commands:
- - /start: Start the bot...
- - /help: help....
- - /donate: To find out more about donating!
- - /settings:
-   - in PM: To find out what SETTINGS you have set....
-   - in a group:
+*PERINTAH*
+ ➢ /start      : ᴍᴇᴍᴜʟᴀɪ ʙᴏᴛ
+ ➢ /help       : ʙᴀɴᴛᴜᴀɴ
+ ➢ /donate     : ᴜɴᴛᴜᴋ ʙᴇʀᴅᴏɴᴀꜱɪ
+ ➢ /settings   : ᴜɴᴛᴜᴋ ᴍᴇɴʏᴇᴛᴇʟ ʙᴏᴛ
+   
 
 {}
-And the following:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll of the following commands  / or ! can  be used...\n")
+ᴋʟɪᴋ/ᴛᴀᴘ ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ:
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nᴘᴇʀɪɴᴛᴀʜ ʏᴀɴɢ ᴛᴇʀꜱᴇᴅɪᴀ \n")
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-It took lots of work for [my creator](t.me/SonOfLars) to get me to where I am now, and every donation helps \
-motivate him to make me even better. All the donation money will go to a better VPS to host me, and/or beer \
-(see his bio!). He's just a poor student, so every little helps!
-There are two ways of paying him; [PayPal](paypal.me/PaulSonOfLars), or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
+DONATE_STRING = """ʙᴇʀᴅᴏɴᴀꜱɪ ʙɪꜱᴀ ᴊᴜɢᴀ ᴅᴇɴɢᴀɴ ꜱᴇɴʏᴜᴍᴀɴ 
+ᴊᴀᴅɪ ᴛᴇᴛᴀᴘʟᴀʜ ᴛᴇʀꜱᴇɴʏᴜᴍ ꜱᴇᴘᴇʀᴛɪ ᴋᴏɴᴛᴏʟ"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -72,7 +68,7 @@ for module_name in ALL_MODULES:
     if not imported_module.__mod_name__.lower() in IMPORTED:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
     else:
-        raise Exception("Can't have two modules with the same name! Please change one")
+        raise Exception("ᴛɪᴅᴀᴋ ʙɪꜱᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴅᴜᴀ ᴍᴏᴅᴜʟ ꜱᴇᴄᴀʀᴀ ʙᴇʀꜱᴀᴍᴀᴀɴ! ꜱɪʟᴀʜᴋᴀɴ ɢᴀɴᴛɪ.")
 
     if hasattr(imported_module, "__help__") and imported_module.__help__:
         HELPABLE[imported_module.__mod_name__.lower()] = imported_module
@@ -233,9 +229,10 @@ def get_help(bot: Bot, update: Update):
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
 
-        update.effective_message.reply_text("Contact me in PM to get the list of possible commands.",
+        update.effective_message.reply_text("ᴘᴄ ꜱᴀʏᴀ ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ꜱᴇᴍᴜᴀ ᴘᴇʀɪɴᴛᴀʜ.
+",
                                             reply_markup=InlineKeyboardMarkup(
-                                                [[InlineKeyboardButton(text="Help",
+                                                [[InlineKeyboardButton(text="KLIK",
                                                                        url="t.me/{}?start=help".format(
                                                                            bot.username))]]))
         return
@@ -255,24 +252,24 @@ def send_settings(chat_id, user_id, user=False):
         if USER_SETTINGS:
             settings = "\n\n".join(
                 "*{}*:\n{}".format(mod.__mod_name__, mod.__user_settings__(user_id)) for mod in USER_SETTINGS.values())
-            dispatcher.bot.send_message(user_id, "These are your current settings:" + "\n\n" + settings,
+            dispatcher.bot.send_message(user_id, "ɪɴɪ ᴀᴅᴀʟᴀʜ ᴘᴇɴɢᴀᴛᴜʀᴀɴ ᴀɴᴅᴀ ꜱᴀᴀᴛ ɪɴɪ:" + "\n\n" + settings,
                                         parse_mode=ParseMode.MARKDOWN)
 
         else:
-            dispatcher.bot.send_message(user_id, "Seems like there aren't any user specific settings available :'(",
+            dispatcher.bot.send_message(user_id, "ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴛᴇᴍᴀɴ, ᴀᴅᴀɴʏᴀ ᴋᴀʏᴜ, ᴍᴀᴜ ? :'(",
                                         parse_mode=ParseMode.MARKDOWN)
 
     else:
         if CHAT_SETTINGS:
             chat_name = dispatcher.bot.getChat(chat_id).title
             dispatcher.bot.send_message(user_id,
-                                        text="Which module would you like to check {}'s settings for?".format(
+                                        text="ᴍᴏᴅᴜʟ ᴍᴀɴᴀ ʏᴀɴɢ ɪɴɢɪɴ ᴀɴᴅᴀ ᴘᴇʀɪᴋꜱᴀ {}'s ᴘᴇɴɢᴀᴛᴜʀᴀɴ ᴜɴᴛᴜᴋ?".format(
                                             chat_name),
                                         reply_markup=InlineKeyboardMarkup(
                                             paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)))
         else:
-            dispatcher.bot.send_message(user_id, "Seems like there aren't any chat settings available :'(\nSend this "
-                                                 "in a group chat you're admin in to find its current settings!",
+            dispatcher.bot.send_message(user_id, "ꜱᴇᴘᴇʀᴛɪɴʏᴀ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢᴀᴛᴜʀᴀɴ ᴏʙʀᴏʟᴀɴ ʏᴀɴɢ ᴛᴇʀꜱᴇᴅɪᴀ:'(\nᴋɪʀɪᴍᴋᴀɴ ɪɴɪ "
+                                                 "ᴅᴀʟᴀᴍ ᴏʙʀᴏʟᴀɴ ɢʀᴜᴘ ᴛᴇᴍᴘᴀᴛ ᴀɴᴅᴀ ᴍᴇɴᴊᴀᴅɪ ᴀᴅᴍɪɴ ᴜɴᴛᴜᴋ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴘᴇɴɢᴀᴛᴜʀᴀɴɴʏᴀ ꜱᴀᴀᴛ ɪɴɪ!",
                                         parse_mode=ParseMode.MARKDOWN)
 
 
@@ -289,7 +286,7 @@ def settings_button(bot: Bot, update: Update):
             chat_id = mod_match.group(1)
             module = mod_match.group(2)
             chat = bot.get_chat(chat_id)
-            text = "*{}* has the following settings for the *{}* module:\n\n".format(escape_markdown(chat.title),
+            text = "*{}* ᴘᴇɴɢᴀᴛᴜʀᴀɴ ʙᴇʀɪᴋᴜᴛ ᴜɴᴛᴜᴋ *{}* ᴍᴏᴅᴜʟᴇ:\n\n".format(escape_markdown(chat.title),
                                                                                      CHAT_SETTINGS[module].__mod_name__) + \
                    CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
             query.message.reply_text(text=text,
@@ -302,8 +299,8 @@ def settings_button(bot: Bot, update: Update):
             chat_id = prev_match.group(1)
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
-            query.message.reply_text("Hi there! There are quite a few settings for {} - go ahead and pick what "
-                                     "you're interested in.".format(chat.title),
+            query.message.reply_text("ʜᴀʟᴏ ! ᴀᴅᴀ ʙᴇʙᴇʀᴀᴘᴀ ꜱᴇᴛᴇʟᴀɴ ᴜɴᴛᴜᴋ {} - ʟᴀɴᴊᴜᴛᴋᴀɴ ᴅᴀɴ ᴘɪʟɪʜ "
+                                     "ᴀɴᴅᴀ ᴛᴇʀᴛᴀʀɪᴋ.".format(chat.title),
                                      reply_markup=InlineKeyboardMarkup(
                                          paginate_modules(curr_page - 1, CHAT_SETTINGS, "stngs",
                                                           chat=chat_id)))
@@ -312,8 +309,8 @@ def settings_button(bot: Bot, update: Update):
             chat_id = next_match.group(1)
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
-            query.message.reply_text("Hi there! There are quite a few settings for {} - go ahead and pick what "
-                                     "you're interested in.".format(chat.title),
+            query.message.reply_text("ʜᴀʟᴏ ! ᴀᴅᴀ ʙᴇʙᴇʀᴀᴘᴀ ꜱᴇᴛᴇʟᴀɴ ᴜɴᴛᴜᴋ {} - ʟᴀɴᴊᴜᴛᴋᴀɴ ᴅᴀɴ ᴘɪʟɪʜ "
+                                     "ᴀɴᴅᴀ ᴛᴇʀᴛᴀʀɪᴋ.".format(chat.title),
                                      reply_markup=InlineKeyboardMarkup(
                                          paginate_modules(next_page + 1, CHAT_SETTINGS, "stngs",
                                                           chat=chat_id)))
@@ -321,8 +318,8 @@ def settings_button(bot: Bot, update: Update):
         elif back_match:
             chat_id = back_match.group(1)
             chat = bot.get_chat(chat_id)
-            query.message.reply_text(text="Hi there! There are quite a few settings for {} - go ahead and pick what "
-                                          "you're interested in.".format(escape_markdown(chat.title)),
+            query.message.reply_text(text="ʜᴀʟᴏ ! ᴀᴅᴀ ʙᴇʙᴇʀᴀᴘᴀ ꜱᴇᴛᴇʟᴀɴ ᴜɴᴛᴜᴋ {} - ʟᴀɴᴊᴜᴛᴋᴀɴ ᴅᴀɴ ᴘɪʟɪʜ "
+                                          "ᴀɴᴅᴀ ᴛᴇʀᴛᴀʀɪᴋ.".format(escape_markdown(chat.title)),
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(paginate_modules(0, CHAT_SETTINGS, "stngs",
                                                                                         chat=chat_id)))
@@ -331,11 +328,11 @@ def settings_button(bot: Bot, update: Update):
         bot.answer_callback_query(query.id)
         query.message.delete()
     except BadRequest as excp:
-        if excp.message == "Message is not modified":
+        if excp.message == "ᴘᴇꜱᴀɴ ᴛɪᴅᴀᴋ ᴅɪᴜʙᴀʜ":
             pass
         elif excp.message == "Query_id_invalid":
             pass
-        elif excp.message == "Message can't be deleted":
+        elif excp.message == "Pesan tidak dapat dihapus":
             pass
         else:
             LOGGER.exception("Exception in settings buttons. %s", str(query.data))
@@ -351,14 +348,14 @@ def get_settings(bot: Bot, update: Update):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = "Click here to get this chat's settings, as well as yours."
+            text = "ᴋʟɪᴋ ᴅɪꜱɪɴɪ."
             msg.reply_text(text,
                            reply_markup=InlineKeyboardMarkup(
                                [[InlineKeyboardButton(text="Settings",
                                                       url="t.me/{}?start=stngs_{}".format(
                                                           bot.username, chat.id))]]))
         else:
-            text = "Click here to check your settings."
+            text = "ᴋʟɪᴋ ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ"
 
     else:
         send_settings(chat.id, user.id, True)
@@ -373,7 +370,7 @@ def donate(bot: Bot, update: Update):
         update.effective_message.reply_text(DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
         if OWNER_ID != 254318997 and DONATION_LINK:
-            update.effective_message.reply_text("You can also donate to the person currently running me "
+            update.effective_message.reply_text("ᴀɴᴅᴀ ʙɪꜱᴀ ʙᴇʀᴅᴏɴᴀꜱɪ ᴜɴᴛᴜᴋ ᴅɪᴀ, ᴅɪᴀ ᴍɪꜱᴋɪɴ ʙʀᴏ ᴋᴀꜱɪᴀɴ "
                                                 "[here]({})".format(DONATION_LINK),
                                                 parse_mode=ParseMode.MARKDOWN)
 
@@ -381,9 +378,9 @@ def donate(bot: Bot, update: Update):
         try:
             bot.send_message(user.id, DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
-            update.effective_message.reply_text("I've PM'ed you about donating to my creator!")
+            update.effective_message.reply_text("donasi")
         except Unauthorized:
-            update.effective_message.reply_text("Contact me in PM first to get donation information.")
+            update.effective_message.reply_text("pm")
 
 
 def migrate_chats(bot: Bot, update: Update):
