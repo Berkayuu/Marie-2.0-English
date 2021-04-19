@@ -18,7 +18,7 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-halo {}, nama aku {} klik /help untuk fitur
+halo {}, nama aku {} klik /help unnntuk fitur
 
 bot di buat oleh [kayu](tg://user?id={}).
 
