@@ -443,10 +443,10 @@ __help__ = """
  - /kickme: coba aja keren loh
 
 *Admin only:*
- - /ban <userhandle>: bans a user. (via handle, or reply)
- - /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- - /unban <userhandle>: unbans a user. (via handle, or reply)
- - /kick <userhandle>: kicks a user, (via handle, or reply)
+ - /ban <userhandle>: banned pengguna. (via handle, atau reply)
+ - /tban <userhandle> x(m/h/d): banned pengguna dalam waktu. (via handle, atau reply). m = menit, h = jam, d = hari.
+ - /unban <userhandle>: unbanned pengguna. (via handle, atau reply)
+ - /kick <userhandle>: kick pengguna, (via handle, atau reply)
 """
 
 __mod_name__ = "Bans"
